@@ -41,6 +41,18 @@
             </div>
             {{ end }}
 
+            {{ if .Site.Params.showCertifications | default true }}
+            <div class="external-profiles">
+                <strong>{{ i18n "certifications" }}</strong>
+
+                {{ range .Site.Params.certificationLinks }}
+                <a href="{{ .link }}" target="_blank"><DANi class="{{ .icon }}"></i></a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+
+
             {{ if and (.Site.Params.showFooterLanguageChooser | default true) (gt .Site.Languages 1) }}
             {{- $.Scratch.Set "language" .Language -}}
             <div class="languages">
